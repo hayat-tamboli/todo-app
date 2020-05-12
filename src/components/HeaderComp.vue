@@ -4,7 +4,7 @@
             <i class="fas fa-bars" v-if="!SideMenuProp" ></i>
             <i class="fas fa-times" v-else style="z-index: +100;"></i>
         </button>
-        <h1>something</h1>
+        <h1>Minimal Todo App</h1>
         <div></div>
     </div>
 </template>

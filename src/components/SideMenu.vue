@@ -19,6 +19,7 @@ export default {
 <style lang="scss" scoped>
 .side-menu{
     position: absolute;
+    background: white;
     top: 10vh;
     left: 0;
     z-index: +10;
