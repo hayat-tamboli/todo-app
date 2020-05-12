@@ -1,0 +1,331 @@
+:root {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.7rem;
+  background: #00baff;
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 2rem;
+  outline: none;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.information {
+  background: white;
+}
+
+.dark {
+  background-color: #1a1c27;
+  color: #ffffff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.dark #todo-input {
+  background: #1a1c27;
+  color: #ffffff;
+}
+
+.dark #todo-input:hover {
+  background: #333;
+}
+
+.dark .information {
+  background: #1a1c27;
+}
+
+.dark .information button {
+  color: white;
+}
+
+.dark ion-icon {
+  color: white;
+}
+
+.completeText {
+  text-decoration: line-through;
+  color: #bdbdbd;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.icon {
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.container header {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.container header #about {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.container .information {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  top: 0;
+}
+
+.container .information p {
+  text-align: center;
+}
+
+.container .information a {
+  text-decoration: none;
+  color: #00bbff;
+}
+
+.container .information div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .information .github-btn {
+  --bg-hover: linear-gradient(
+        135deg,
+        #333333 20%,
+        #00baff 37%,
+        #fff 50%,
+        #490872 66%,
+        #201944 72%,
+        #333333 100%
+      );
+  width: 100%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.container .information .github-btn a {
+  display: table;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  font-weight: 200;
+  padding: 1.4rem 2.4rem;
+  background-color: var(--btn-color);
+  overflow: hidden;
+  border-radius: 0.8rem;
+}
+
+.container .information .github-btn .--animated {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.container .information .github-btn .--animated span {
+  position: relative;
+  z-index: 9;
+  text-transform: capitalize;
+}
+
+.container .information .github-btn .--animated:after {
+  height: 100%;
+  width: 2000px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  background: var(--bg-hover);
+}
+
+.container .information .github-btn .--animated:hover:before {
+  top: 0;
+  opacity: 1;
+}
+
+.container .information .github-btn .--animated:hover:after {
+  left: -1450px;
+}
+
+.container .information .github-btn .--animated:before,
+.container .information .github-btn a:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  display: block;
+  content: "";
+}
+
+.container .information .github-btn .--animated:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.container main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 80vh;
+}
+
+.container main .form {
+  min-height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container main .form input {
+  border: none;
+  border-bottom: medium solid #83deff;
+  outline: none;
+}
+
+.container main .form input:hover {
+  background: #f0f0f0;
+}
+
+.container main .form input,
+.container main .form button {
+  font-size: 2rem;
+  min-height: 3rem;
+}
+
+.container main .todo-container .todo-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+}
+
+.container main .todo-container .todo-list .todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+
+.container main .todo-container .todo-list .todo li {
+  padding: 1rem;
+}
+
+.container footer {
+  height: 10vh;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+  opacity: 0;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+/*# sourceMappingURL=main.css.map */

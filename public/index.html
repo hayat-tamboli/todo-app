@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="a simple todo app made using VUE" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="keywords"
+      content="hayat,tamboli,todo app,todo,project,vue,vue.js,hayat tamboli,github,netlify,web app,website,todoist,minimal,netlify app"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../src/assets/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../src/assets/favicon.png" />
+    <title>✔️todo app</title>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div class="container" :class="{dark: darkMode}">
+      <!--info page-->
+      <info-page v-show="infoOpen" style="z-index: +80;"></info-page>
+      <header-comp
+      :darkmodep="darkMode"
+      :infoopenp="infoOpen"
+      @darkmode="darkModeToggle"
+      @infoopen="infoOpenToggle"
+      ></header-comp>
+      <main>
+        <form class="form" autocomplete="off" @submit.prevent="addTodo">
+          <input
+            v-model="newTodoText"
+            type="text"
+            id="todo-input"
+            placeholder="Add a todo..."
+            @keyup.enter="addTodo"
+          />
+          <button @click="addTodo" class="todo-btn">
+            <ion-icon name="add-circle-outline" class="icon"></ion-icon>
+          </button>
+        </form>
+        <div class="todo-container">
+          <ul class="todo-list">
+            <li
+              is="todo-item"
+              v-for="(todo, index) in todos"
+              v-bind:title="todo.title"
+              v-bind:key="todo.id"
+              v-on:remove="deleteTodo(index)"
+            ></li>
+          </ul>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <!--for production-->
+    <script src="../main.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+    <!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+    <script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+  </body>
+</html>

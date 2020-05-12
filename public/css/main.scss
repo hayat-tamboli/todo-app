@@ -1,0 +1,228 @@
+@mixin bdrclr {
+  border: none;
+  border-bottom: medium solid #83deff;
+}
+$darkblack: #1a1c27;
+:root {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-family: "Fira Sans", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  width: 0.7rem;
+  background: #00baff;
+  border-radius: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 2rem;
+  outline: none;
+}
+button {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+.information {
+  background: white;
+}
+.dark {
+  background-color: $darkblack;
+  color: #ffffff;
+  #todo-input {
+    background: $darkblack;
+    color: #ffffff;
+    &:hover {
+      background: #333;
+    }
+  }
+  .information {
+    background: $darkblack;
+    button {
+      color: white;
+    }
+  }
+  ion-icon{
+    color: white;
+  }
+  transition: all 0.3s ease-in-out;
+}
+.completeText {
+  text-decoration: line-through;
+  color: #bdbdbd;
+  transition: all 0.3s;
+}
+.icon{
+  font-size: 3rem;
+}
+#app {
+  max-width: 100vw;
+  overflow-x: hidden;
+  header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    #about {
+      width: fit-content;
+      padding: 1rem;
+    }
+  }
+  .information {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    top: 0;
+    p {
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+      color: #00bbff;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .github-btn {
+      --bg-hover: linear-gradient(
+        135deg,
+        #333333 20%,
+        #00baff 37%,
+        #fff 50%,
+        #490872 66%,
+        #201944 72%,
+        #333333 100%
+      );
+      width: 100%;
+      justify-self: center;
+      a {
+        display: table;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        font-weight: 200;
+        padding: 1.4rem 2.4rem;
+        background-color: var(--btn-color);
+        overflow: hidden;
+        border-radius: 0.8rem;
+      }
+      .--animated {
+        transition: all 0.8s;
+        span {
+          position: relative;
+          z-index: 9;
+          text-transform: capitalize;
+        }
+        &:after {
+          height: 100%;
+          width: 2000px;
+          transition: all 1s;
+          background: var(--bg-hover);
+        }
+      }
+
+      .--animated:hover:before {
+        top: 0;
+        opacity: 1;
+      }
+      .--animated:hover:after {
+        left: -1450px;
+      }
+      .--animated:before,
+      a:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 7;
+        display: block;
+        content: "";
+      }
+      .--animated:active {
+        transform: scale(0.9);
+        transition: all 200ms;
+      }
+    }
+  }
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    .form {
+      min-height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form input {
+      @include bdrclr();
+      outline: none;
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+    .form input,
+    .form button {
+      font-size: 2rem;
+      min-height: 3rem;
+    }
+    .todo-container {
+      .todo-list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        .todo {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem;
+          li {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    height: 10vh;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
