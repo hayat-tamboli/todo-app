@@ -11,6 +11,7 @@
           <i class="fas fa-trash icon"></i>
         </button>
       </transition>
+      <i class="fas fa-grip-lines handle"></i>
     </div>
   </div>
 </template>
@@ -53,5 +54,8 @@ export default {
   text-decoration: line-through;
   color: #bdbdbd;
   transition: all 0.3s;
+}
+.handle{
+  cursor: grab;
 }
 </style>

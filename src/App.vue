@@ -19,6 +19,7 @@
       </form>
       <div class="todo-container">
         <ul class="todo-list">
+          <draggable :list="todos" handle=".handle">
           <li
             is="todo-item"
             v-for="(todo, index) in todos"
@@ -26,6 +27,7 @@
             v-bind:key="todo.id"
             v-on:remove="deleteTodo(index)"
           ></li>
+          </draggable>
         </ul>
       </div>
     </main>
@@ -36,12 +38,14 @@
 import HeaderComp from "./components/HeaderComp";
 import SideMenu from "./components/SideMenu";
 import TodoItem from "./components/TodoItem";
+import draggable from 'vuedraggable'
 export default {
   name: "App",
   components: {
     HeaderComp,
     SideMenu,
-    TodoItem
+    TodoItem,
+    draggable
   },
   data() {
     return {
@@ -49,7 +53,7 @@ export default {
       sideMenu: false,
       newTodoText: "",
       todos: [],
-      nextTodoId: 0
+      nextTodoId: 0,
     };
   },
   mounted() {
@@ -74,10 +78,12 @@ export default {
   methods: {
     addTodo() {
       if (this.newTodoText != "")
+      {
         this.todos.unshift({
           id: this.nextTodoId++,
           title: this.newTodoText
         });
+      }
       this.newTodoText = "";
       this.saveTodos();
     },
@@ -180,8 +186,10 @@ export default {
 }
 .fa,
 .fas,
-.far {
-  font-size: 1.5rem;
+.far,
+.fab {
+  font-size: 2rem;
+  padding: .5rem;
 }
 .slide-enter-active,
 .slide-left-enter-active,
@@ -197,5 +205,10 @@ export default {
 .slide-left-enter,
 .slide-left-leave-to{
   transform: translateX(20px);
+}
+@media only screen and (max-width: 480px){
+  :root{
+    font-size: 10px;
+  }
 }
 </style>
