@@ -3,17 +3,16 @@
     <div>
       <span>darkmode:</span>
       <button @click="$emit('dark_mode')">
-        <i class="far fa-moon" v-if="!DarkModeProp"></i>
-        <i class="fas fa-moon" v-else></i>
+        <v-icon name="regular/moon" v-if="!DarkModeProp" class="icon" scale="2"/>
+        <v-icon name="moon" class="icon" scale="2" v-else/>
       </button>
     </div>
     <div class="footer">
       <div>
-        <span>github:</span>
+        <span>repo:</span>
         <button>
           <a href="https://github.com/hayat-tamboli/"
-            ><i class="fab fa-github"></i
-          ></a>
+            ><v-icon name="brands/github" label="Forked Repository" scale="2" class="icon" /></a>
         </button>
       </div>
       <div>

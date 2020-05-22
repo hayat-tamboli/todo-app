@@ -14,21 +14,11 @@
           @keyup.enter="addTodo"
         />
         <button @click="addTodo" class="todo-btn">
-          <i class="far fa-plus-square icon"></i>
+          <v-icon name="regular/plus-square" scale="2" class="icon" />
         </button>
       </form>
       <div class="todo-container">
-        <ul class="todo-list">
-          <draggable :list="todos" handle=".handle">
-          <li
-            is="todo-item"
-            v-for="(todo, index) in todos"
-            v-bind:title="todo.title"
-            v-bind:key="todo.id"
-            v-on:remove="deleteTodo(index)"
-          ></li>
-          </draggable>
-        </ul>
+        <TodoItem :todos="todos" @savetodo="saveTodos"></TodoItem>
       </div>
     </main>
   </div>
@@ -38,22 +28,22 @@
 import HeaderComp from "./components/HeaderComp";
 import SideMenu from "./components/SideMenu";
 import TodoItem from "./components/TodoItem";
-import draggable from 'vuedraggable'
+//import draggable from "vuedraggable";
 export default {
   name: "App",
   components: {
     HeaderComp,
     SideMenu,
-    TodoItem,
-    draggable
+    TodoItem
+    //draggable
   },
   data() {
     return {
       darkMode: false,
       sideMenu: false,
       newTodoText: "",
-      todos: [],
-      nextTodoId: 0,
+      Time: "",
+      todos: []
     };
   },
   mounted() {
@@ -76,15 +66,46 @@ export default {
     }
   },
   methods: {
+    createTodoTime() {
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      let creationTime = new Date();
+      let date =
+        creationTime.getUTCDate() +
+        "-" +
+        months[creationTime.getUTCMonth()] +
+        "-" +
+        creationTime.getUTCFullYear();
+      let time;
+      if (creationTime.getHours() < 12) {
+        time =
+          creationTime.getHours() + ":" + creationTime.getMinutes() + " AM";
+      } else if(creationTime.getHours() == 12) {
+        time =
+          creationTime.getHours() +
+          ":" +
+          creationTime.getMinutes() +
+          " PM";
+      } else  {
+        time =
+          creationTime.getHours() -
+          12 +
+          ":" +
+          creationTime.getMinutes() +
+          " PM";
+      }
+      this.Time = "made at " + date + "  " + time;
+    },
     addTodo() {
-      if (this.newTodoText != "")
-      {
+      if (this.newTodoText != "") {
+        this.createTodoTime();
         this.todos.unshift({
-          id: this.nextTodoId++,
-          title: this.newTodoText
+          completed: false,
+          title: this.newTodoText,
+          Time: this.Time
         });
       }
       this.newTodoText = "";
+      this.Time= "";
       this.saveTodos();
     },
     saveTodos() {
@@ -109,10 +130,6 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.icon{
-  font-size: 3rem;
-  padding: 1rem;
-}
 .dark {
   $darkblack: #1a1c27;
   background: $darkblack;
@@ -124,14 +141,32 @@ export default {
       background: #333;
     }
   }
-  .side-menu{
+  .edit-box {
     background: #333;
-  }
-  .far,
-  .fa,
-  .fas {
+    border: none;
     color: white;
   }
+  .icon {
+    color: white;
+    margin: 0.5rem;
+  }
+  #search-input {
+    outline: none;
+    border: none;
+    background: $darkblack;
+    border-bottom: thick solid #333;
+    font-size: 1.5rem;
+    &:focus {
+      border-bottom: thick solid #83deff;
+    }
+    transition: all 0.5s;
+  }
+  .side-menu {
+    background: #333;
+  }
+}
+.icon {
+  margin: 0.5rem;
 }
 #app {
   max-width: 100vw;
@@ -148,7 +183,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      button{
+      button {
         outline: none;
         background: none;
         border: none;
@@ -189,12 +224,12 @@ export default {
 .far,
 .fab {
   font-size: 2rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 .slide-enter-active,
 .slide-left-enter-active,
 .slide-leave-active,
-.slide-left-active{
+.slide-left-active {
   transition: all 0.3s;
 }
 .slide-enter,
@@ -203,11 +238,11 @@ export default {
   opacity: 0;
 }
 .slide-left-enter,
-.slide-left-leave-to{
+.slide-left-leave-to {
   transform: translateX(20px);
 }
-@media only screen and (max-width: 480px){
-  :root{
+@media only screen and (max-width: 480px) {
+  :root {
     font-size: 10px;
   }
 }
