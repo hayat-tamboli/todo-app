@@ -27,9 +27,7 @@
       </div>
       <div>
         <span>made by:</span
-        ><a
-          href="https://www.linkedin.com/in/hayat-tamboli/"
-          style="color: #83deff;"
+        ><a href="https://hayattamboli.vercel.app" style="color: #83deff;"
           >Hayat Tamboli</a
         >
       </div>
