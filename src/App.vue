@@ -1,8 +1,15 @@
 <template>
-  <div id="app" :class="{dark: darkMode}">
-    <HeaderComp :SideMenuProp="sideMenu" @side_menu_toggle="sideMenu=!sideMenu"></HeaderComp>
+  <div id="app" :class="{ dark: darkMode }">
+    <HeaderComp
+      :SideMenuProp="sideMenu"
+      @side_menu_toggle="sideMenu = !sideMenu"
+    ></HeaderComp>
     <transition name="slide">
-      <SideMenu v-show="sideMenu" :DarkModeProp="darkMode" @dark_mode="darkMode=!darkMode"></SideMenu>
+      <SideMenu
+        v-show="sideMenu"
+        :DarkModeProp="darkMode"
+        @dark_mode="darkMode = !darkMode"
+      ></SideMenu>
     </transition>
     <main>
       <form autocomplete="off" @submit.prevent="addTodo">
@@ -28,14 +35,12 @@
 import HeaderComp from "./components/HeaderComp";
 import SideMenu from "./components/SideMenu";
 import TodoItem from "./components/TodoItem";
-//import draggable from "vuedraggable";
 export default {
   name: "App",
   components: {
     HeaderComp,
     SideMenu,
     TodoItem
-    //draggable
   },
   data() {
     return {
@@ -67,7 +72,20 @@ export default {
   },
   methods: {
     createTodoTime() {
-      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ];
       let creationTime = new Date();
       let date =
         creationTime.getUTCDate() +
@@ -79,13 +97,10 @@ export default {
       if (creationTime.getHours() < 12) {
         time =
           creationTime.getHours() + ":" + creationTime.getMinutes() + " AM";
-      } else if(creationTime.getHours() == 12) {
+      } else if (creationTime.getHours() == 12) {
         time =
-          creationTime.getHours() +
-          ":" +
-          creationTime.getMinutes() +
-          " PM";
-      } else  {
+          creationTime.getHours() + ":" + creationTime.getMinutes() + " PM";
+      } else {
         time =
           creationTime.getHours() -
           12 +
@@ -105,7 +120,7 @@ export default {
         });
       }
       this.newTodoText = "";
-      this.Time= "";
+      this.Time = "";
       this.saveTodos();
     },
     saveTodos() {

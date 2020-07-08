@@ -3,8 +3,13 @@
     <div>
       <span>darkmode:</span>
       <button @click="$emit('dark_mode')">
-        <v-icon name="regular/moon" v-if="!DarkModeProp" class="icon" scale="2"/>
-        <v-icon name="moon" class="icon" scale="2" v-else/>
+        <v-icon
+          name="regular/moon"
+          v-if="!DarkModeProp"
+          class="icon"
+          scale="2"
+        />
+        <v-icon name="moon" class="icon" scale="2" v-else />
       </button>
     </div>
     <div class="footer">
@@ -12,7 +17,12 @@
         <span>repo:</span>
         <button>
           <a href="https://github.com/hayat-tamboli/"
-            ><v-icon name="brands/github" label="Forked Repository" scale="2" class="icon" /></a>
+            ><v-icon
+              name="brands/github"
+              label="Forked Repository"
+              scale="2"
+              class="icon"
+          /></a>
         </button>
       </div>
       <div>
@@ -30,8 +40,8 @@
 export default {
   name: "SideMenu",
   props: {
-    DarkModeProp: Boolean,
-  },
+    DarkModeProp: Boolean
+  }
 };
 </script>
 
@@ -58,8 +68,8 @@ export default {
     text-decoration: none;
     color: white;
   }
-  .footer{
-      flex-direction: column;
+  .footer {
+    flex-direction: column;
   }
   button {
     outline: none;

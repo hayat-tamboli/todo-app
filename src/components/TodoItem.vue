@@ -1,19 +1,32 @@
 <template>
   <div class="todo">
     <draggable :list="todos" handle=".handle">
-      <div v-for="(item,index) in todos" :key="index" class="todo-item">
+      <div v-for="(item, index) in todos" :key="index" class="todo-item">
         <label
           :class="{ completeText: item.completed }"
           id="t1"
           :content="item.Time"
-          v-tippy="{ placement : 'left',  arrow: true }"
-          @dblclick="edit=!edit"
+          v-tippy="{ placement: 'left', arrow: true }"
+          @dblclick="edit = !edit"
           v-if="!edit"
-        >{{ item.title }}</label>
-        <input type="text" v-model="item.title" v-else @blur="doneEdit" @keyup.enter="doneEdit" class="edit-box"/>
+          >{{ item.title }}</label
+        >
+        <input
+          type="text"
+          v-model="item.title"
+          v-else
+          @blur="doneEdit"
+          @keyup.enter="doneEdit"
+          class="edit-box"
+        />
         <div>
-          <button @click="item.completed=!item.completed">
-            <v-icon name="regular/check-square" scale="2" class="icon" v-if="!item.completed" />
+          <button @click="item.completed = !item.completed">
+            <v-icon
+              name="regular/check-square"
+              scale="2"
+              class="icon"
+              v-if="!item.completed"
+            />
             <v-icon name="check-square" scale="2" class="icon" v-else />
           </button>
           <transition name="slide-left">
@@ -71,8 +84,8 @@ export default {
       this.todos.splice(index, 1);
       this.$emit("savetodo");
     },
-    doneEdit(){
-      this.edit=false;
+    doneEdit() {
+      this.edit = false;
       this.$emit("savetodo");
     }
   }
@@ -108,8 +121,8 @@ export default {
 .handle {
   cursor: grab;
 }
-.edit-box{
-  padding: .5rem;
+.edit-box {
+  padding: 0.5rem;
   font-size: 1.5rem;
   background: #e3e3e3;
   border: none;
