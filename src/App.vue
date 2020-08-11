@@ -2,13 +2,13 @@
   <div id="app" :class="{ dark: darkMode }">
     <HeaderComp
       :SideMenuProp="sideMenu"
-      @side_menu_toggle="sideMenu = !sideMenu"
+      @side-menu-toggle="sideMenu = !sideMenu"
     ></HeaderComp>
     <transition name="slide">
       <SideMenu
         v-show="sideMenu"
         :DarkModeProp="darkMode"
-        @dark_mode="darkMode = !darkMode"
+        @dark-mode="darkMode = !darkMode"
       ></SideMenu>
     </transition>
     <main>
@@ -171,9 +171,6 @@ export default {
     background: $darkblack;
     border-bottom: thick solid #333;
     font-size: 1.5rem;
-    &:focus {
-      border-bottom: thick solid #83deff;
-    }
     transition: all 0.5s;
   }
   .side-menu {
@@ -206,7 +203,7 @@ export default {
     }
     form input {
       border: none;
-      border-bottom: medium solid #83deff;
+      border-bottom: medium solid #2257ea;
       outline: none;
       &:hover {
         background: #f0f0f0;

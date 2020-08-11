@@ -2,7 +2,7 @@
   <div class="side-menu">
     <div>
       <span>darkmode:</span>
-      <button @click="$emit('dark_mode')">
+      <button @click="$emit('dark-mode')">
         <v-icon
           name="regular/moon"
           v-if="!DarkModeProp"
@@ -14,23 +14,30 @@
     </div>
     <div class="footer">
       <div>
-        <span>repo:</span>
+        <span>contribute:</span>
         <button>
-          <a href="https://github.com/hayat-tamboli/"
-            ><v-icon
+          <a href="https://github.com/hayat-tamboli/todo-app">
+            <v-icon
               name="brands/github"
               label="Forked Repository"
               scale="2"
               class="icon"
-          /></a>
+            />
+          </a>
         </button>
       </div>
-      <div>
-        <span>made by:</span
-        ><a href="https://hayattamboli.vercel.app" style="color: #83deff;"
+      <p>
+        <a
+          href="https://raw.githubusercontent.com/hayat-tamboli/todo-app/master/LICENSE"
+          style="color: #2257EA;"
+          >&copy; 2020</a
+        >
+      </p>
+      <p>
+        <a href="https://hayattamboli.vercel.app" style="color: #2257EA;"
           >Hayat Tamboli</a
         >
-      </div>
+      </p>
     </div>
   </div>
 </template>
@@ -45,17 +52,16 @@ export default {
 
 <style lang="scss" scoped>
 .side-menu {
+  font-size: 1.5rem;
   position: absolute;
-  background: white;
+  background: rgb(222, 222, 222);
   top: 10vh;
   left: 0;
   z-index: +10;
   height: 90vh;
   padding: 2rem 0.5rem;
-  border-right: 1px solid #000000;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: column;
   div {
     display: flex;
@@ -68,14 +74,16 @@ export default {
   }
   .footer {
     flex-direction: column;
+    justify-content: space-around;
   }
   button {
     outline: none;
     border: none;
     border-radius: 2rem;
-    background: #000000;
+    background: #333333;
     color: white;
-    padding: 0.5rem;
+    padding: 0.2rem;
+    margin: 0.2rem;
   }
 }
 </style>

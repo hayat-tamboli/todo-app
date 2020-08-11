@@ -44,7 +44,7 @@ button {
   border-bottom: thick solid #e3e3e3;
   font-size: 1.5rem;
   &:focus {
-    border-bottom: thick solid #83deff;
+    border-bottom: thick solid #2257ea;
   }
   transition: all 0.5s;
 }

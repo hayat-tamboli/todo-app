@@ -1,10 +1,10 @@
 <template>
   <div id="header">
-    <button @click="$emit('side_menu_toggle')">
+    <button @click="$emit('side-menu-toggle')">
       <v-icon class="icon" name="bars" v-if="!SideMenuProp" scale="2" />
       <v-icon name="times" class="icon" v-else scale="2" />
     </button>
-    <h1>Minimal Todo App</h1>
+    <h1>Todone</h1>
     <div>
       <!--<SearchBox></SearchBox>-->
     </div>
