@@ -2,39 +2,42 @@
   <div class="side-menu">
     <div>
       <span>darkmode:</span>
-      <button @click="$emit('dark-mode')">
-        <v-icon
-          name="regular/moon"
-          v-if="!DarkModeProp"
-          class="icon"
-          scale="2"
-        />
-        <v-icon name="moon" class="icon" scale="2" v-else />
-      </button>
+      <v-icon
+        name="regular/moon"
+        v-if="!DarkModeProp"
+        class="icon"
+        scale="2"
+        @click="$emit('dark-mode')"
+      />
+      <v-icon
+        name="moon"
+        class="icon"
+        scale="2"
+        @click="$emit('dark-mode')"
+        v-else
+      />
     </div>
     <div class="footer">
       <div>
         <span>contribute:</span>
-        <button>
-          <a href="https://github.com/hayat-tamboli/todo-app">
-            <v-icon
-              name="brands/github"
-              label="Forked Repository"
-              scale="2"
-              class="icon"
-            />
-          </a>
-        </button>
+        <a href="https://github.com/hayat-tamboli/todo-app">
+          <v-icon
+            name="brands/github"
+            label="Forked Repository"
+            scale="2"
+            class="icon"
+          />
+        </a>
       </div>
       <p>
         <a
           href="https://raw.githubusercontent.com/hayat-tamboli/todo-app/master/LICENSE"
-          style="color: #2257EA;"
+          style="color: #00ADB5;"
           >&copy; 2020</a
         >
       </p>
       <p>
-        <a href="https://hayattamboli.vercel.app" style="color: #2257EA;"
+        <a href="https://hayattamboli.vercel.app" style="color: #00ADB5;"
           >Hayat Tamboli</a
         >
       </p>
@@ -54,7 +57,7 @@ export default {
 .side-menu {
   font-size: 1.5rem;
   position: absolute;
-  background: rgb(222, 222, 222);
+  background: #dedede;
   top: 10vh;
   left: 0;
   z-index: +10;
@@ -79,11 +82,7 @@ export default {
   button {
     outline: none;
     border: none;
-    border-radius: 2rem;
-    background: #333333;
-    color: white;
-    padding: 0.2rem;
-    margin: 0.2rem;
+    padding: 0;
   }
 }
 </style>

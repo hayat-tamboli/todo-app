@@ -137,16 +137,21 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+$blue: #00adb5;
 :root {
   font-family: "Jost", sans-serif;
+  transition: all 0.2s ease-in-out;
 }
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+.icon {
+  margin: 0.5rem;
+  color: #333;
+}
 .dark {
-  $darkblack: #1a1c27;
+  $darkblack: #393e46;
   background: $darkblack;
   color: white;
   #todo-input {
@@ -162,8 +167,7 @@ export default {
     color: white;
   }
   .icon {
-    color: white;
-    margin: 0.5rem;
+    color: #ffffff;
   }
   #search-input {
     outline: none;
@@ -176,9 +180,6 @@ export default {
   .side-menu {
     background: #333;
   }
-}
-.icon {
-  margin: 0.5rem;
 }
 #app {
   max-width: 100vw;
@@ -203,7 +204,7 @@ export default {
     }
     form input {
       border: none;
-      border-bottom: medium solid #2257ea;
+      border-bottom: medium solid $blue;
       outline: none;
       &:hover {
         background: #f0f0f0;
