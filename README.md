@@ -8,8 +8,9 @@
     <img alt="Twitter: HayatTamboli" src="https://img.shields.io/twitter/follow/HayatTamboli.svg?style=social" />
   </a>
 </p>
-
+<p align="center">
 <img align="center" src="./public/img/icons/android-chrome-192x192.png" />
+  </p>
 
 > A very minimalistic designed todo app which is actually a website but, it can work as an app(PWA)
 
